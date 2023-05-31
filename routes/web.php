@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\KategoriController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,4 +20,13 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware('auth')->group(function () {
+    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+    Route::controller(KategoriController::class)->prefix('kategori')->name('kategori.')->group( function() {
+        Route::get('/', 'index')->name('index');
+        Route::put('/store', 'store')->name('store');
+        Route::put('/delete/{id}', 'delete')->name('delete');
+        Route::put('/update/{id}', 'update')->name('update');
+    });
+});
