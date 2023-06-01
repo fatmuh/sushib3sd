@@ -5,19 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Kategori extends Model
+class Produk extends Model
 {
     use HasFactory;
 
-    protected $table = 'kategori';
+    protected $table = 'produk';
     protected $fillable = [
         'name',
+        'kategori_id',
+        'harga_jual',
     ];
 
     protected $hidden;
 
-    public function produk()
+    public function kategori()
     {
-        return $this->hasOne(Produk::class, 'kategori_id');
+        return $this->belongsTo(Kategori::class, 'kategori_id', 'id');
     }
 }

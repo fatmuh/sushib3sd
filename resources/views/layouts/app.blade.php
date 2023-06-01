@@ -67,8 +67,8 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+            <li class="nav-item {{ request()->routeIs('produk.index') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('produk.index') }}">
                     <i class="fas fa-fw fa-table"></i>
                     <span>Produk</span></a>
             </li>
