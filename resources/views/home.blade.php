@@ -49,11 +49,11 @@
             <div class="card-body">
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
-                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Pendapatan Bulan Ini
+                        <div class="text-xs font-weight-bold text-success text-uppercase mb-1">Total Pendapatan ({{ date('d M Y') }})
                         </div>
                         <div class="row no-gutters align-items-center">
                             <div class="col-auto">
-                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">#</div>
+                                <div class="h5 mb-0 mr-3 font-weight-bold text-gray-800">{{ "Rp".number_format($total_pendapatan,2,',','.') }}</div>
                             </div>
                         </div>
                     </div>
@@ -69,8 +69,8 @@
                 <div class="row no-gutters align-items-center">
                     <div class="col mr-2">
                         <div class="text-xs font-weight-bold text-danger text-uppercase mb-1">
-                            Total Pengeluaran Bulan Ini</div>
-                        <div class="h5 mb-0 font-weight-bold text-gray-800">#</div>
+                            Total Pengeluaran ({{ date('d M Y') }})</div>
+                        <div class="h5 mb-0 font-weight-bold text-gray-800">{{ "Rp".number_format($total_pengeluaran,2,',','.') }}</div>
                     </div>
                 </div>
             </div>

@@ -16,14 +16,10 @@ use App\Http\Controllers\KategoriController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Auth::routes();
 
 Route::middleware('auth')->group(function () {
-    Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+    Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
 
     Route::controller(KategoriController::class)->prefix('kategori')->name('kategori.')->group( function() {
         Route::get('/', 'index')->name('index');
