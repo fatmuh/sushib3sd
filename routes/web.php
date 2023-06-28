@@ -38,11 +38,4 @@ Route::middleware('auth')->group(function () {
         Route::put('/delete/{id}', 'delete')->name('delete');
         Route::put('/update/{id}', 'update')->name('update');
     });
-
-    Route::controller(MemberController::class)->prefix('member')->name('member.')->group( function() {
-        Route::get('/', 'index')->name('index');
-        Route::post('/store', 'store')->name('store');
-        Route::post('/delete/{uuid}', 'delete')->name('delete');
-        Route::post('/update/{uuid}', 'update')->name('update');
-    });
 });

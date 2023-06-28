@@ -73,13 +73,6 @@
                     <span>Produk</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
-            <li class="nav-item {{ request()->routeIs('member.index') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('member.index') }}">
-                    <i class="fas fa-fw fa-credit-card"></i>
-                    <span>Member</span></a>
-            </li>
-
             <!-- Divider -->
             <hr class="sidebar-divider">
 
