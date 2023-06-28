@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Member;
 use App\Models\Produk;
 use App\Models\Kategori;
 use Illuminate\Http\Request;
@@ -27,9 +28,11 @@ class HomeController extends Controller
     {
         $produk = Produk::all()->count();
         $kategori = Kategori::all()->count();
+        $member = Member::all()->count();
         return view('home', [
             'kategori' => $kategori,
             'produk' => $produk,
+            'member' => $member,
         ]);
     }
 }

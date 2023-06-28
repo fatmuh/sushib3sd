@@ -74,8 +74,8 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+            <li class="nav-item {{ request()->routeIs('member.index') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('member.index') }}">
                     <i class="fas fa-fw fa-credit-card"></i>
                     <span>Member</span></a>
             </li>
