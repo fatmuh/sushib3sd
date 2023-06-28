@@ -96,18 +96,18 @@
             </li>
 
             <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
+            <li class="nav-item {{ request()->routeIs('penjualan.index') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('penjualan.index') }}">
                     <i class="fas fa-fw fa-cart-plus"></i>
-                    <span>Pembelian</span></a>
+                    <span>Penjualan</span></a>
             </li>
 
-            <!-- Nav Item - Tables -->
+            {{-- <!-- Nav Item - Tables -->
             <li class="nav-item">
                 <a class="nav-link" href="tables.html">
                     <i class="fas fa-fw fa-cart-arrow-down"></i>
                     <span>Penjualan</span></a>
-            </li>
+            </li> --}}
 
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">

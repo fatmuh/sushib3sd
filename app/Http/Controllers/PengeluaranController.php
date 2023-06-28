@@ -39,6 +39,6 @@ class PengeluaranController extends Controller
     {
         $item = Pengeluaran::where('id', $id);
         $item->delete();
-        return redirect()->route('pengeluaran.index')->with('toast_success', 'pengeluaran Deleted Successfully!');
+        return redirect()->route('pengeluaran.index')->with('toast_success', 'Pengeluaran Deleted Successfully!');
     }
 }
