@@ -89,8 +89,8 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+            <li class="nav-item {{ request()->routeIs('pengeluaran.index') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('pengeluaran.index') }}">
                     <i class="fas fa-fw fa-money-bill"></i>
                     <span>Pengeluaran</span></a>
             </li>
