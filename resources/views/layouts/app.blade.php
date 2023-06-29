@@ -95,8 +95,8 @@
                     <span>Penjualan</span></a>
             </li>
 
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
+            <li class="nav-item {{ request()->routeIs('transaksi.index') ? 'active' : '' }}">
+                <a class="nav-link" href="{{ route('transaksi.index') }}">
                     <i class="fas fa-fw fa-cart-arrow-down"></i>
                     <span>Transaksi</span></a>
             </li>

@@ -10,6 +10,24 @@ use App\Models\DetailTransaksi;
 class TransaksiController extends Controller
 {
 
+    public function index()
+    {
+        $data = Transaksi::latest()->get();
+        return view('pages.transaksi.index', [
+            'data' => $data,
+        ]);
+    }
+
+    public function detail($id)
+    {
+        $data = DetailTransaksi::where('transaction_id', $id)->get();
+        $transaksi = Transaksi::where('id', $id)->first();
+        return view('pages.transaksi.detail', [
+            'data' => $data,
+            'transaksi' => $transaksi,
+        ]);
+    }
+
     public function store(Request $request)
     {
         $params = $request->all();
@@ -41,13 +59,13 @@ class TransaksiController extends Controller
 			if ($transaction && $carts) {
 				foreach ($carts as $cart) {
 
-                    $itemBaseTotal = $cart->quantity * $cart->price;
+                    $itemBaseTotal = $cart->quantity * $cart->produk->harga_jual;
 
 					$orderItemParams = [
 						'product_id' => $cart->produk_id,
 						'transaction_id' => $transaction->id,
 						'qty' => $cart->quantity,
-						'base_price' => $cart->price,
+						'base_price' => $cart->produk->harga_jual,
 						'base_total' => $itemBaseTotal,
 					];
 
@@ -61,7 +79,25 @@ class TransaksiController extends Controller
         });
 
 		if ($transaction) {
-			return redirect()->route('penjualan.index')->with('toast_success', 'Transaction Successfully!');
+			return redirect()->route('transaksi.detail', $transaction->id)->with('toast_success', 'Transaction Successfully!');
 		}
+    }
+
+    public function delete($id)
+    {
+        $item = Transaksi::findOrFail($id);
+        DetailTransaksi::where('transaction_id', $item->id)->delete();
+        $item->delete();
+        return redirect()->route('transaksi.index')->with('toast_success', 'Transaction Deleted Successfully!');
+    }
+
+    public function print_struck($id)
+    {
+        $data = DetailTransaksi::where('transaction_id', $id)->get();
+        $dataTransaksi = Transaksi::where('id', $id)->first();
+        return view('pages.transaksi.nota', [
+            'data' => $data,
+            'dataTransaksi' => $dataTransaksi,
+        ]);
     }
 }

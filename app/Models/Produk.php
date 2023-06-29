@@ -27,4 +27,9 @@ class Produk extends Model
     {
         return $this->hasOne(Cart::class, 'produk_id');
     }
+
+    public function detail()
+    {
+        return $this->hasMany(DetailTransaksi::class, 'product_id');
+    }
 }

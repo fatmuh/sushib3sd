@@ -40,6 +40,10 @@ Route::middleware('auth')->group(function () {
     });
 
     Route::controller(TransaksiController::class)->prefix('transaksi')->name('transaksi.')->group( function() {
+        Route::get('/', 'index')->name('index');
+        Route::get('/detail/{id}', 'detail')->name('detail');
         Route::post('/store', 'store')->name('store');
+        Route::post('/delete/{id}', 'delete')->name('delete');
+        Route::get('/{id}/print_struck', 'print_struck')->name('print-struck');
     });
 });

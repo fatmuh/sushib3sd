@@ -20,4 +20,9 @@ class Transaksi extends Model
     ];
 
     protected $hidden;
+
+    public function detail()
+    {
+        return $this->hasOne(Produk::class, 'transaction_id');
+    }
 }

@@ -9,7 +9,7 @@ class KategoriController extends Controller
 {
     public function index()
     {
-        $data = Kategori::all();
+        $data = Kategori::latest()->get();
         return view('pages.kategori.index', compact('data'));
     }
 

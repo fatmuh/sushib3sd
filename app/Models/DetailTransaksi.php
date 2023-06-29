@@ -19,4 +19,14 @@ class DetailTransaksi extends Model
     ];
 
     protected $hidden;
+
+    public function transaksi()
+    {
+        return $this->belongsTo(Transaksi::class, 'transaction_id', 'id');
+    }
+
+    public function produk()
+    {
+        return $this->belongsTo(Produk::class, 'product_id', 'id');
+    }
 }
