@@ -116,6 +116,7 @@
                     <span>Laporan</span></a>
             </li>
 
+            @if (auth()->user()->role == "Admin")
             <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
@@ -123,17 +124,18 @@
                 Admin Menu
             </div>
 
-            <li class="nav-item">
+            <li class="nav-item {{ request()->routeIs('user.index') ? 'active' : '' }}">
                 <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-user"></i>
                     <span>User Management</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <a class="collapse-item " href="http://127.0.0.1:8000/admin/users"> <i class="fa fa-user mr-2"></i> Users</a>
+                        <a class="collapse-item" href="{{ route('user.index') }}"> <i class="fa fa-user mr-2"></i> Users</a>
                     </div>
                 </div>
             </li>
+            @endif
 
 
             <!-- Sidebar Toggler (Sidebar) -->
