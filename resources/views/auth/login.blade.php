@@ -34,8 +34,10 @@
                 <div class="card o-hidden border-0 shadow-lg my-5">
                     <div class="card-body p-0">
                         <!-- Nested Row within Card Body -->
-                        <div class="row">
-                            <div class="col-lg-6 d-none d-lg-block bg-login-image"></div>
+                        <div class="row d-flex justify-content-center align-items-center">
+                            <div class="col-lg-6 d-none d-lg-block bg-login-image text-center">
+                                <img src="{{ asset('assets/img/logo.png') }}" width="500px">
+                            </div>
                             <div class="col-lg-6">
                                 <div class="p-5">
                                     <div class="text-center">
@@ -72,8 +74,6 @@
                                             {{ __('Login') }}
                                         </button>
                                     </form>
-                                    <hr>
-
                                 </div>
                             </div>
                         </div>
