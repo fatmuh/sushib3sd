@@ -58,7 +58,6 @@
                         </td>
                     </tr>
                     @include('pages.transaksi.delete')
-                    {{-- @include('pages.produk.edit') --}}
                     @endforeach
                 </tbody>
             </table>

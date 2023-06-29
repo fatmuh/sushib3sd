@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CartController;
+use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\PenjualanController;
 use App\Http\Controllers\TransaksiController;
 use App\Http\Controllers\PengeluaranController;
@@ -46,5 +47,9 @@ Route::middleware('auth')->group(function () {
         Route::post('/delete/{id}', 'delete')->name('delete');
         Route::get('/{id}/print_struck', 'print_struck')->name('print-struck');
         Route::get('/export', 'export')->name('export');
+    });
+
+    Route::controller(LaporanController::class)->prefix('laporan')->name('laporan.')->group( function() {
+        Route::get('/', 'laporan')->name('index');
     });
 });
