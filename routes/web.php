@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\MemberController;
 use App\Http\Controllers\ProdukController;
+use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\KategoriController;
 
 /*
@@ -21,6 +22,13 @@ Auth::routes();
 
 Route::middleware('auth')->group(function () {
     Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('index');
+
+    Route::controller(ProfileController::class)->prefix('profil')->name('profil.')->group( function() {
+        Route::get('/', 'index')->name('index');
+        Route::post('/update', 'update')->name('update');
+        Route::get('/change-password', 'changePassword')->name('changePassword');
+        Route::post('/change-password', 'changePasswordPost')->name('changePassword.post');
+    });
 
     Route::controller(KategoriController::class)->prefix('kategori')->name('kategori.')->group( function() {
         Route::get('/', 'index')->name('index');
