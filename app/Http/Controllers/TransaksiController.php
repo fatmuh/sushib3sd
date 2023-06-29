@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use App\Models\Cart;
 use App\Models\Transaksi;
 use Illuminate\Http\Request;
+use Illuminate\Support\Carbon;
 use App\Models\DetailTransaksi;
+use App\Exports\TransaksiExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 class TransaksiController extends Controller
 {
@@ -100,4 +103,27 @@ class TransaksiController extends Controller
             'dataTransaksi' => $dataTransaksi,
         ]);
     }
+
+    public function export(Request $request)
+    {
+        $date = Carbon::now();
+        $formattedDate = $date->format('Ymd');
+        $exportType = $request->input('export_type');
+
+        $query = Transaksi::query(); // Use query() to create a new query builder instance
+
+        if ($exportType === 'Daily') {
+            $query->whereDate('created_at', Carbon::today());
+        } elseif ($exportType === 'Weekly') {
+            $query->whereBetween('created_at', [Carbon::now()->startOfWeek(), Carbon::now()->endOfWeek()]);
+        } elseif ($exportType === 'Monthly') {
+            $query->whereMonth('created_at', Carbon::now()->month);
+        }
+
+        $export = new TransaksiExport($query->get()); // Execute the query using get()
+        $exportData = Excel::download($export, 'transaksi-'.$formattedDate.'.xlsx');
+
+        return $exportData;
+    }
+
 }

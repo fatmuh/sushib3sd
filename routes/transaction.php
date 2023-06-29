@@ -45,5 +45,6 @@ Route::middleware('auth')->group(function () {
         Route::post('/store', 'store')->name('store');
         Route::post('/delete/{id}', 'delete')->name('delete');
         Route::get('/{id}/print_struck', 'print_struck')->name('print-struck');
+        Route::get('/export', 'export')->name('export');
     });
 });

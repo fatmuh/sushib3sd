@@ -16,6 +16,20 @@
     </div>
     <div class="card-body">
 
+        <form action="{{ route('transaksi.export') }}" class="form-inline mb-3" method="GET">
+            <div class="form-group">
+                <select placeholder="Tipe" name="export_type" class="form-control">
+                    <option value="">All Data</option>
+                    <option value="Daily">Daily</option>
+                    <option value="Weekly">Weekly</option>
+                    <option value="Monthly">Monthly</option>
+                </select>
+            </div>
+            <div class="form-group mx-sm-2">
+                <button type="submit" class="btn btn-primary">Export</button>
+            </div>
+        </form>
+
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
