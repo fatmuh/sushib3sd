@@ -54,10 +54,10 @@
                         <td>{{ $transaksi->created_by }}</td>
                         <td>
                             <a href="{{ route('transaksi.detail', $transaksi->id) }}" class="btn btn-outline-info"><i class="fas fa-eye"></i></a>
-                            <a href="" data-bs-toggle="modal" data-bs-target="#ModalDelete{{ $transaksi->id }}" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a>
+                            {{-- <a href="" data-bs-toggle="modal" data-bs-target="#ModalDelete{{ $transaksi->id }}" class="btn btn-outline-danger"><i class="fas fa-trash"></i></a> --}}
                         </td>
                     </tr>
-                    @include('pages.transaksi.delete')
+                    {{-- @include('pages.transaksi.delete') --}}
                     @endforeach
                 </tbody>
             </table>
