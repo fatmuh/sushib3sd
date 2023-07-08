@@ -51,5 +51,6 @@ Route::middleware('auth')->group(function () {
 
     Route::controller(LaporanController::class)->prefix('laporan')->name('laporan.')->group( function() {
         Route::get('/', 'laporan')->name('index');
+        Route::get('/pengeluaran', 'pengeluaran')->name('pengeluaran');
     });
 });

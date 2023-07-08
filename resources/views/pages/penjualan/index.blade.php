@@ -34,7 +34,7 @@
                             @foreach ($data as $produk)
                             <tr class="text-center">
                                 <td>{{ $loop->iteration }}</td>
-                                <td>#{{ $produk->id }}</td>
+                                <td>{{ $produk->product_id }}</td>
                                 <td>{{ $produk->name }}</td>
                                 <td>{{ "Rp".number_format($produk->harga_jual,2,',','.') }}</td>
                                 <td>

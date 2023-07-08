@@ -19,6 +19,8 @@ class KategoriController extends Controller
             'name' => 'required',
         ]);
 
+        $validatedData['category_id'] =  'K100' . mt_rand(1,1000);
+
         Kategori::create($validatedData);
         return redirect()->route('kategori.index')->with('toast_success', 'Category Added Successfully!');
     }

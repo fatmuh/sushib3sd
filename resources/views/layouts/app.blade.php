@@ -110,10 +110,17 @@
             </div>
 
             <!-- Nav Item - Charts -->
-            <li class="nav-item {{ request()->routeIs('laporan.index') ? 'active' : '' }}">
-                <a class="nav-link" href="{{ route('laporan.index') }}">
-                    <i class="fas fa-fw fa-file-pdf"></i>
-                    <span>Laporan</span></a>
+            <li class="nav-item">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapseLaporan" aria-expanded="true" aria-controls="collapseLaporan">
+                    <i class="fas fa-fw fa-user"></i>
+                    <span>Laporan</span>
+                </a>
+                <div id="collapseLaporan" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <a class="collapse-item" href="{{ route('laporan.index') }}"> <i class="fa fa-money-bill mr-2"></i> Pendapatan</a>
+                        <a class="collapse-item" href="{{ route('laporan.pengeluaran') }}"> <i class="fa fa-money-check mr-2"></i> Pengeluaran</a>
+                    </div>
+                </div>
             </li>
 
             @if (auth()->user()->role == "Admin")

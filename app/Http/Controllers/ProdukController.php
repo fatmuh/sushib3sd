@@ -23,6 +23,8 @@ class ProdukController extends Controller
             'harga_jual' => 'required',
         ]);
 
+        $validatedData['product_id'] =  'SB100' . mt_rand(1,1000);
+
         Produk::create($validatedData);
         return redirect()->route('produk.index')->with('toast_success', 'Product Added Successfully!');
     }

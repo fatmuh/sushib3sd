@@ -51,6 +51,7 @@
                 <thead>
                     <tr class="text-center">
                         <th style="width:60px;">No</th>
+                        <th style="width:200px;">Kode Kategori</th>
                         <th>Name</th>
                         <th style="width: 200px">Action</th>
                     </tr>
@@ -59,6 +60,7 @@
                     @foreach ($data as $kategori)
                     <tr class="text-center">
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $kategori->category_id }}</td>
                         <td>{{ $kategori->name }}</td>
                         <td>
                             <a href="" data-bs-toggle="modal" data-bs-target="#ModalEdit{{ $kategori->id }}" class="btn btn-outline-warning"><i class="fas fa-pen"></i></a>

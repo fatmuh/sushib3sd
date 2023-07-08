@@ -20,7 +20,7 @@
                         <select class="form-control" name="kategori_id" required>
                             <option value="{{ old('kategori_id', $produk->kategori_id) }}">{{ $produk->kategori->name }} (Current)</option>
                             @foreach ($kategori as $category)
-                                <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                <option value="{{ $category->category_id }}">{{ $category->name }}</option>
                             @endforeach
                         </select>
                     </div>

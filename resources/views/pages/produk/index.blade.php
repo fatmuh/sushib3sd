@@ -42,7 +42,7 @@
                                 <select class="form-control" name="kategori_id" required>
                                     <option>---Pilih Kategori---</option>
                                     @foreach ($kategori as $category)
-                                        <option value="{{ $category->id }}">{{ $category->name }}</option>
+                                        <option value="{{ $category->category_id }}">{{ $category->name }}</option>
                                     @endforeach
                                 </select>
                             </div>
@@ -66,6 +66,7 @@
                 <thead>
                     <tr class="text-center">
                         <th style="width:60px;">No</th>
+                        <th>Kode Produk</th>
                         <th>Nama Produk</th>
                         <th>Kategori</th>
                         <th>Harga Jual</th>
@@ -76,6 +77,7 @@
                     @foreach ($data as $produk)
                     <tr class="text-center">
                         <td>{{ $loop->iteration }}</td>
+                        <td>{{ $produk->product_id }}</td>
                         <td>{{ $produk->name }}</td>
                         <td>{{ $produk->kategori->name }}</td>
                         <td>{{ "Rp".number_format($produk->harga_jual,2,',','.') }}</td>
