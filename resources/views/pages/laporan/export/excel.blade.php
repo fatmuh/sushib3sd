@@ -1,9 +1,14 @@
 <meta charset="utf-8">
 <table>
     <thead>
-        <th>No</th>
-        <th>Date</th>
-        <th>Total Revenue</th>
+        <tr>
+            <td colspan="3" style="text-align: center;"><strong>Total Pendapatan</strong></td>
+        </tr>
+        <tr>
+            <th>No</th>
+            <th>Tanggal</th>
+            <th>Total Pendapatan</th>
+        </tr>
     </thead>
     <tbody>
         @forelse ($reports as $report)

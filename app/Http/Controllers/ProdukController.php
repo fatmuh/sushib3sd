@@ -23,7 +23,18 @@ class ProdukController extends Controller
             'harga_jual' => 'required',
         ]);
 
-        $validatedData['product_id'] =  'SB100' . mt_rand(1,1000);
+        $lastProductId = Produk::orderBy('product_id', 'desc')->first();
+
+        if ($lastProductId) {
+            $lastAutoIncrement = intval(substr($lastProductId->product_id, -4));
+            $autoIncrement = $lastAutoIncrement + 1;
+        } else {
+            $autoIncrement = 1;
+        }
+
+        $formattedAutoIncrement = sprintf('%04d', $autoIncrement);
+
+        $validatedData['product_id'] =  "SB{$formattedAutoIncrement}";
 
         Produk::create($validatedData);
         return redirect()->route('produk.index')->with('toast_success', 'Product Added Successfully!');

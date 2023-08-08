@@ -13,7 +13,7 @@
     <div class="col-md-6 col-lg-7">
         <div class="card shadow mb-4">
             <div class="card-header py-3">
-                <h6 class="m-0 font-weight-bold text-primary">Daftar Produk</h6>
+                <h6 class="m-0 font-weight-bold text-primary">Daftar Menu</h6>
             </div>
             <div class="card-body">
                 <div class="table-responsive">
@@ -57,9 +57,9 @@
                 <table class="table" width="100%" cellspacing="0">
                     <thead>
                         <tr>
-                            <th>Product Name</th>
-                            <th class="text-center">Quantity</th>
-                            <th class="text-center">Price</th>
+                            <th>Nama Menu</th>
+                            <th class="text-center">Jumlah</th>
+                            <th class="text-center">Harga</th>
                             <th style="width: 50px" class="text-center"><i class="fas fa-cog"></i></th>
                         </tr>
                     </thead>
@@ -87,9 +87,9 @@
 
                         <div class="col-md-12 mt-3">
                             <div class="note-title">
-                                <label>Nama Customer</label>
+                                <label>Nama Pelanggan</label>
                                 <input type="text" value="" name="customer_name" class="form-control"
-                                    placeholder="Masukkan Nama Customer" required>
+                                    placeholder="Masukkan Nama Pelanggan" required>
                             </div>
                         </div>
 
@@ -114,7 +114,7 @@
 
                     <div class="col-12 py-3">
                         <button type="submit" class="btn btn-primary btn-block action-disable" onclick="pay()"
-                            @if($isCartEmpty) disabled @endif>Pay</button>
+                            @if($isCartEmpty) disabled @endif>Bayar</button>
                     </div>
                 </form>
             </div>

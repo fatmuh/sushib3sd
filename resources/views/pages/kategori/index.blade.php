@@ -7,7 +7,7 @@
 @section('content')
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Kategori</h1>
+<h1 class="h3 mb-2 text-gray-800">Kategori Produk</h1>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
@@ -26,19 +26,19 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 class="modal-title fs-5" id="exampleModalLabel">Tambah Kategori</h3>
-                        <button type="button" data-bs-dismiss="modal">x</button>
+
                     </div>
                     <div class="modal-body">
                         <form action="{{ route('kategori.store') }}" method="POST">
                             @csrf
                             @method('put')
                             <div class="mb-3">
-                                <label class="col-form-label">Name</label>
+                                <label class="col-form-label">Nama</label>
                                 <input type="text" class="form-control" name="name" required>
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                         <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
                     </form>
@@ -52,8 +52,8 @@
                     <tr class="text-center">
                         <th style="width:60px;">No</th>
                         <th style="width:200px;">Kode Kategori</th>
-                        <th>Name</th>
-                        <th style="width: 200px">Action</th>
+                        <th>Nama</th>
+                        <th style="width: 200px"><i class="fas fa-cog"></i></th>
                     </tr>
                 </thead>
                 <tbody>

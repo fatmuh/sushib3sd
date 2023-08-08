@@ -26,7 +26,7 @@
                 <div class="modal-content">
                     <div class="modal-header">
                         <h3 class="modal-title fs-5" id="exampleModalLabel">Tambah Pengeluaran</h3>
-                        <button type="button" data-bs-dismiss="modal">x</button>
+
                     </div>
                     <div class="modal-body">
                         <form action="{{ route('pengeluaran.store') }}" method="POST">
@@ -47,7 +47,7 @@
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                         <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
                     </form>
@@ -63,7 +63,7 @@
                         <th>Tanggal</th>
                         <th>Deskripsi</th>
                         <th>Nominal</th>
-                        <th style="width: 200px">Action</th>
+                        <th style="width: 200px"><i class="fas fa-cog"></i></th>
                     </tr>
                 </thead>
                 <tbody>

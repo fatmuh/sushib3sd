@@ -4,7 +4,7 @@
         <div class="modal-content">
             <div class="modal-header">
                 <h3 class="modal-title fs-5" id="exampleModalLabel">Edit Produk</h3>
-                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">x</button>
+
             </div>
             <div class="modal-body">
                 <form class="row g-3" action="{{ route('produk.update', ['id' => $produk->id]) }}" method="POST" enctype="multipart/form-data">
@@ -31,7 +31,7 @@
                     </div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                 <button type="submit" class="btn btn-success">Edit Produk</button>
             </div>
             </form>

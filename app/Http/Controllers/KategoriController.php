@@ -19,7 +19,18 @@ class KategoriController extends Controller
             'name' => 'required',
         ]);
 
-        $validatedData['category_id'] =  'K100' . mt_rand(1,1000);
+        $lastProductId = Kategori::orderBy('category_id', 'desc')->first();
+
+        if ($lastProductId) {
+            $lastAutoIncrement = intval(substr($lastProductId->category_id, -4));
+            $autoIncrement = $lastAutoIncrement + 1;
+        } else {
+            $autoIncrement = 1;
+        }
+
+        $formattedAutoIncrement = sprintf('%04d', $autoIncrement);
+
+        $validatedData['category_id'] =  "K{$formattedAutoIncrement}";
 
         Kategori::create($validatedData);
         return redirect()->route('kategori.index')->with('toast_success', 'Category Added Successfully!');

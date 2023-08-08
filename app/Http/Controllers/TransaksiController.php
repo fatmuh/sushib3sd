@@ -46,8 +46,23 @@ class TransaksiController extends Controller
             $totalHarga = $carts->sum('price');
             $return = $params['accept'] - $totalHarga;
 
+            $tanggalHariIni = date('dmY');
+
+            $lastTransaction = Transaksi::where('transaction_code', 'like', "P{$tanggalHariIni}%")
+                ->orderBy('transaction_code', 'desc')
+                ->first();
+
+            if ($lastTransaction) {
+                $lastAutoIncrement = intval(substr($lastTransaction->transaction_code, -3));
+                $autoIncrement = $lastAutoIncrement + 1;
+            } else {
+                $autoIncrement = 1;
+            }
+
+            $formattedAutoIncrement = str_pad($autoIncrement, 3, '0', STR_PAD_LEFT);
+
             $transactionParams = [
-                'transaction_code' => 'P100' . mt_rand(1,1000),
+                'transaction_code' => "P{$tanggalHariIni}{$formattedAutoIncrement}",
                 'customer_name' => $params['customer_name'],
                 'price_total' => $totalHarga,
                 'accept' => $params['accept'],
@@ -85,7 +100,6 @@ class TransaksiController extends Controller
 			return redirect()->route('transaksi.detail', $transaction->id)->with('toast_success', 'Transaction Successfully!');
 		}
     }
-
     public function delete($id)
     {
         $item = Transaksi::findOrFail($id);

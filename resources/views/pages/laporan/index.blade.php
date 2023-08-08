@@ -51,8 +51,8 @@
             <table class="table table-bordered table-striped">
                 <thead>
                     <th>No</th>
-                    <th>Date</th>
-                    <th>Total Revenue</th>
+                    <th>Tanggal</th>
+                    <th>Total Pendapatan</th>
                 </thead>
                 <tbody>
                     @forelse ($reports as $report)

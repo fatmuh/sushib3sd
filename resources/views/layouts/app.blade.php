@@ -70,7 +70,7 @@
             <li class="nav-item {{ request()->routeIs('produk.index') ? 'active' : '' }}">
                 <a class="nav-link" href="{{ route('produk.index') }}">
                     <i class="fas fa-fw fa-table"></i>
-                    <span>Produk</span></a>
+                    <span>Menu</span></a>
             </li>
 
             <!-- Divider -->

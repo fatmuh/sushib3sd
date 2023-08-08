@@ -1,23 +1,23 @@
 @extends('layouts.app')
 
 @section('title')
-<title>SushiB3SD - Produk</title>
+<title>SushiB3SD - Menu</title>
 @endsection
 
 @section('content')
 
 <!-- Page Heading -->
-<h1 class="h3 mb-2 text-gray-800">Produk</h1>
+<h1 class="h3 mb-2 text-gray-800">Menu</h1>
 
 <!-- DataTales Example -->
 <div class="card shadow mb-4">
     <div class="card-header py-3">
-        <h6 class="m-0 font-weight-bold text-primary">Daftar Produk</h6>
+        <h6 class="m-0 font-weight-bold text-primary">Daftar Menu</h6>
     </div>
     <div class="card-body">
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-primary mb-3" data-bs-toggle="modal" data-bs-target="#exampleModal">
-            Tambah Produk
+            Tambah Menu
         </button>
 
         <!-- Modal -->
@@ -25,16 +25,16 @@
             <div class="modal-dialog">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h3 class="modal-title fs-5" id="exampleModalLabel">Tambah Produk</h3>
-                        <button type="button" data-bs-dismiss="modal">x</button>
+                        <h3 class="modal-title fs-5" id="exampleModalLabel">Tambah Menu</h3>
+
                     </div>
                     <div class="modal-body">
                         <form action="{{ route('produk.store') }}" method="POST">
                             @csrf
                             @method('put')
                             <div class="mb-3">
-                                <label class="col-form-label">Nama Produk</label>
-                                <input type="text" class="form-control" name="name" placeholder="Nama Produk" required>
+                                <label class="col-form-label">Nama Menu</label>
+                                <input type="text" class="form-control" name="name" placeholder="Nama Menu" required>
                             </div>
 
                             <div class="mb-3">
@@ -53,7 +53,7 @@
                             </div>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Tutup</button>
                         <button type="submit" class="btn btn-primary">Tambah</button>
                     </div>
                     </form>
@@ -66,11 +66,11 @@
                 <thead>
                     <tr class="text-center">
                         <th style="width:60px;">No</th>
-                        <th>Kode Produk</th>
-                        <th>Nama Produk</th>
+                        <th>Kode Menu</th>
+                        <th>Nama Menu</th>
                         <th>Kategori</th>
-                        <th>Harga Jual</th>
-                        <th style="width: 200px">Action</th>
+                        <th>Harga</th>
+                        <th style="width: 200px"><i class="fas fa-cog"></i></th>
                     </tr>
                 </thead>
                 <tbody>

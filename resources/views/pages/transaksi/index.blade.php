@@ -40,7 +40,7 @@
                         <th>Nama Pelanggan</th>
                         <th>Total Harga</th>
                         <th>Kasir</th>
-                        <th style="width: 200px">Action</th>
+                        <th style="width: 200px"><i class="fas fa-cog"></i></th>
                     </tr>
                 </thead>
                 <tbody>
